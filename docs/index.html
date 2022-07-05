@@ -22,9 +22,9 @@
     <body>
         <!-- <nav class="gnav-sp-wrap">
             <ul class="gnav-sp">
-                <li><a href="">ABOUT</a></li> 
-                <li><a href="">WORKS</a></li>
-                <li><a href="">CONTACT</a></li>
+                <li><a href="#ABOUT">ABOUT</a></li> 
+                <li><a href="works.html">WORKS</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
             </ul>
         </nav> -->
 
@@ -32,8 +32,8 @@
             <div class="gnav-pc-wrap">
                 <ul class="gnav-pc">
                     <li><a href="#ABOUT">ABOUT</a></li>
-                    <li><a href="">WORKS</a></li>
-                    <li><a href="">CONTACT</a></li>
+                    <li><a href="works.html">WORKS</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
                 </ul>
             </div>
             <!-- <div id="menu-button">
@@ -47,21 +47,24 @@
 
         <div id="mainVis">
         <!-- set main visual -->
-            <img src="./images/me.jpg" alt="ME" id="mainVisImg">
+            <div class="section-inner" id="firstView">
+                <h2 class="large">Welcome to my portfolio.</h2>
+                <img src="./images/me.jpg" alt="ME" id="mainVisImg">
+            </div>
         </div>
 
         <div id="ABOUT">
             <div class="section-inner">
                 <div class="col-2" id="ABOUT">
                     <div class="item-img">
-                        <img src="./images/about.jpg" alt="ME">
+                        <img src="./images/about.jpg" alt="ME" id="about-img">
                         <h3 class="medium">MANA HAYASHI</h3>
                         <h4 class="small">Web Designer</h4>
                     </div>
 
                     <div class="item">
                         <h2 class="large">ABOUT</h2>
-                        <p class="small">
+                        <p class="small" id="about-jp">
                             1997年9月29日生まれ。東京を拠点としている。<br>
                             趣味は旅行、ファッション、美容、読書、洋画、<br>
                             語学の勉強、ダンス、体を動かすこと全般。<br>
@@ -73,9 +76,9 @@
                         <p class="small" id="psmall-en">
                             Born in Sep 29, 1997. Based in Tokyo.<br>
                             Like: traveling, fashion, beauty, books,<br>
-                            movies, learning languages, K-POP dance<br> 
-                            Currently learning web design at SHElikes<br> 
-                            to be able to work from anywhere in the world♡
+                            movies, learning languages, K-POP dance.<br> 
+                            Currently learning web design at SHElikes to<br> 
+                            be able to work from anywhere in the world♡
                         </p>
                     </div>
                 </div>
@@ -101,11 +104,26 @@
         </div>
         
         <footer id="footer">
-            <p class="copyright">©︎2022 MANA HAYASHI</p>
+            <p class="copyright">MANA HAYASHI | mana.designst@gmail.com</p>
         </footer>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+        <script>
+            $(function () {
+                $(window).scroll(function () {
+                const windowHeight = $(window).height();
+                const scroll = $(window).scrollTop();
+
+                    $(".section-inner").each(function () {
+                    const targetPosition = $(this).offset().top;
+                        if (scroll > targetPosition - windowHeight + 100) {
+                        $(this).addClass("is-fadein");
+                        }
+                    });
+                });
+            });
+        </script>
     </body>
 
 </html>
